@@ -1,21 +1,33 @@
-#Question 1
-names = c("Aisha", "Bryan","Chloe","Daniel", "Emily")
-gender = c("Female","Male","Female","Male","Female")
-age = c(22,23,21,24,22)
-test_score = c(85,78,92,65,88)
-attendance = c(90,85,95,70,88)
+# Create vectors for each column
+Name <- c("Aisha", "Bryan", "Chloe", "Daniel", "Emily")
+Gender <- c("Female", "Male", "Female", "Male", "Female")
+Age <- c(22, 23, 21, 24, 22)
+Test_Score <- c(85, 78, 92, 65, 88)
+Attendance <- c(90, 85, 95, 70, 88)
 
-df = data.frame(names, gender, age, test_score, attendance)
-View(df)
+# Combine into a data frame
+students <- data.frame(
+  Name,
+  Gender,
+  Age,
+  Test_Score,
+  Attendance
+)
 
-#Question 2
-df[df$test_score]
-df['test_score']
+# View the data frame
+students
 
-df[df$age>22]
-df[df$gender == "Female" & test_score > 80]
+# Display the Test_Score column using df["Test_Score"]
+students["Test_Score"]
 
-#Question 3
-newdf = rbind(df,data.frame(names = "Lina",gender = "Male", age = 20, test_score = 95, attendance = 92))
-View(newdf)
+# Display the Test_Score column using df$Test_Score
+students$Test_Score
 
+# Display the first 3 rows of the data frame
+head(students, 3)
+
+# Display students who are older than 22
+students[students$Age > 22, ]
+
+# Display female students with Test_Score greater than 80
+students[students$Gender == "Female" & students$Test_Score > 80, ]
